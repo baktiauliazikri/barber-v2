@@ -23,3 +23,34 @@ The design medium is **HTML/CSS/JS** — these are prototypes, not production co
 - `README.md` — this file
 - `chats/` — conversation transcripts (read these!)
 - `project/` — the `Perbaikan Desain Layanan Barbershop` project files (HTML prototypes, assets, components)
+
+---
+
+## Implementation (Vue 3)
+
+`project/Kontur Booking v2.dc.html` — the six-step, black/white "v2" booking
+flow (branch → service → barber → date/time → confirm → receipt) — has been
+implemented as a real Vue 3 + Vite app at the repo root (`index.html`,
+`src/`). It ports the prototype's state logic and inline style strings
+verbatim so the visual output and interactions match pixel-for-pixel:
+
+- `src/data.js` — the mock branches/services/addons/barbers/slots data (no
+  backend; kept client-side per the design bundle's scope)
+- `src/store/booking.js` — the booking flow state + derived view-model,
+  ported from the prototype's `Component` class (`state` + `renderVals()`)
+- `src/styleHelpers.js` — the `card`/`dot`/`chip`/`sw`/`knob` style-string
+  builders, ported verbatim
+- `src/components/` — one component per step, plus shared header/footer/
+  progress-bar pieces
+- Branch/barber photos and the receipt map are reproduced as placeholder
+  graphics (diagonal-stripe / grid patterns), matching the source prototype's
+  own placeholders — swap in real photos later by editing the relevant
+  component.
+
+### Run it
+
+```
+npm install
+npm run dev      # dev server
+npm run build    # production build to dist/
+```
