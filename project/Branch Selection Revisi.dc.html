@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#e7e5e0; font-family:'IBM Plex Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1a1a18; } a:hover { color:#8a6a2f; }
+  * { box-sizing:border-box; }
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;justify-content:center;padding:32px 16px;background:#e7e5e0">
+<div style="width:390px;max-width:100%;background:#faf9f6;border:1px solid #d6d3cb;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;height:844px;box-shadow:0 24px 60px rgba(30,28,24,.14)">
+
+  <div style="display:flex;align-items:center;gap:12px;padding:18px 20px 14px;background:#faf9f6;border-bottom:1px solid #eceae4;flex-shrink:0">
+    <div style="width:34px;height:34px;border-radius:50%;border:1px solid #d6d3cb;display:flex;align-items:center;justify-content:center;font-size:15px;color:#33302a;cursor:pointer">←</div>
+    <div style="flex:1;min-width:0">
+      <div style="font-family:'Instrument Serif',serif;font-size:19px;letter-spacing:.02em;color:#1a1a18;line-height:1">KONTUR</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;color:#9a968c;margin-top:3px">BARBER ATELIER</div>
+    </div>
+    <div style="width:34px;height:34px;border-radius:50%;background:#1a1a18;display:flex;align-items:center;justify-content:center;color:#faf9f6;font-size:12px;font-weight:500">AR</div>
+  </div>
+
+  <div style="padding:14px 20px 12px;flex-shrink:0">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="display:flex;gap:4px;flex:1">
+        <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+        <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+        <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+        <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+        <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#9a968c">01/05</div>
+    </div>
+  </div>
+
+  <div style="flex:1;overflow-y:auto;padding:8px 20px 20px">
+    <h1 style="font-family:'Instrument Serif',serif;font-size:34px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18;letter-spacing:-.01em">Pilih cabang<br>di Jakarta</h1>
+    <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 16px;max-width:32ch">Tiga atelier. Diurutkan dari yang terdekat dengan lokasimu.</p>
+
+    <div style="display:flex;gap:8px;margin-bottom:18px">
+      <div onClick="{{ sortNear }}" style="{{ nearStyle }}">Terdekat</div>
+      <div onClick="{{ sortSoon }}" style="{{ soonStyle }}">Slot tercepat</div>
+    </div>
+
+    <sc-for list="{{ branches }}" as="b" hint-placeholder-count="3">
+      <div onClick="{{ b.select }}" style="{{ b.cardStyle }}">
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <div style="width:72px;height:72px;border-radius:10px;flex-shrink:0;overflow:hidden;background:#e4e1d9;position:relative">
+            <svg width="72" height="72" viewBox="0 0 72 72" style="display:block">
+              <defs><pattern id="{{ b.patId }}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="3" height="6" fill="#d9d5cb"></rect><rect x="3" width="3" height="6" fill="#e6e3da"></rect>
+              </pattern></defs>
+              <rect width="72" height="72" fill="{{ b.patUrl }}"></rect>
+            </svg>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <div style="flex:1;min-width:0">
+                <div style="font-size:18px;font-weight:600;color:#1a1a18;line-height:1.25;letter-spacing:-.01em">{{ b.name }}</div>
+                <div style="font-size:13px;color:#6e6a61;line-height:1.45;margin-top:4px">{{ b.address }}</div>
+              </div>
+              <div style="{{ b.dotStyle }}">✓</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:9px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;color:#33302a">
+              <span style="color:#8a6a2f">◈</span><span>{{ b.distance }}</span>
+              <span style="color:#c9c4b8">·</span><span>{{ b.travel }}</span>
+            </div>
+          </div>
+        </div>
+        <div style="{{ b.slotStyle }}">
+          <span style="font-size:13px;color:#5d594f">Slot terdekat hari ini</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:#1a1a18;letter-spacing:.04em">{{ b.slot }}</span>
+        </div>
+      </div>
+    </sc-for>
+
+    <div style="margin-top:18px;padding:14px 16px;background:#f1efe8;border-radius:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8d8880;margin-bottom:6px">BERLAKU DI SEMUA CABANG</div>
+      <div style="font-size:13px;line-height:1.5;color:#5d594f">Master barber bersertifikat, espresso single-origin, dan ruang dengan akustik terkontrol.</div>
+    </div>
+    <div style="height:12px"></div>
+  </div>
+
+  <div style="flex-shrink:0;border-top:1px solid #e6e3db;background:#faf9f6;padding:14px 20px 18px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#8d8880">CABANG DIPILIH</div>
+      <div style="font-size:14px;font-weight:600;color:#1a1a18">{{ selectedName }}</div>
+    </div>
+    <div style="background:#1a1a18;color:#faf9f6;border-radius:12px;height:54px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500;cursor:pointer" style-hover="background:#2e2b26">
+      <span>Lanjut pilih layanan</span><span style="font-size:16px">→</span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:422,&quot;height&quot;:908}}">
+const BRANCHES = [
+  { id:'kemang', name:'Kemang Flagship', address:'Jl. Kemang Raya No. 18, Jakarta Selatan', km:1.8, travel:'8 mnt berkendara', slot:'14:30' },
+  { id:'senopati', name:'Senopati Atelier', address:'Jl. Senopati No. 42, Kebayoran Baru', km:3.4, travel:'14 mnt berkendara', slot:'11:15' },
+  { id:'menteng', name:'Menteng Heritage', address:'Jl. Teuku Cik Ditiro No. 12, Jakarta Pusat', km:7.9, travel:'26 mnt berkendara', slot:'16:00' }
+];
+
+class Component extends DCLogic {
+  state = { selected:'kemang', sort:'near' };
+
+  renderVals() {
+    const { selected, sort } = this.state;
+    const list = [...BRANCHES].sort((a,b) =>
+      sort === 'near' ? a.km - b.km : a.slot.localeCompare(b.slot));
+    const chip = on => `padding:8px 14px;border-radius:20px;font-size:12.5px;font-weight:500;cursor:pointer;transition:all .18s ease;border:1px solid ${on?'#1a1a18':'#ddd9d0'};background:${on?'#1a1a18':'transparent'};color:${on?'#faf9f6':'#6e6a61'}`;
+
+    return {
+      selectedName: BRANCHES.find(b => b.id === selected).name,
+      nearStyle: chip(sort === 'near'),
+      soonStyle: chip(sort === 'soon'),
+      sortNear: () => this.setState({ sort:'near' }),
+      sortSoon: () => this.setState({ sort:'soon' }),
+      branches: list.map(b => {
+        const on = b.id === selected;
+        return {
+          ...b,
+          distance: b.km.toString().replace('.', ',') + ' KM',
+          patId: 'p-' + b.id,
+          patUrl: `url(#p-${b.id})`,
+          select: () => this.setState({ selected:b.id }),
+          cardStyle: `border:1px solid ${on?'#1a1a18':'#e2dfd7'};border-left:${on?'4px':'1px'} solid ${on?'#1a1a18':'#e2dfd7'};background:${on?'#fffefb':'#f4f2ec'};border-radius:14px;padding:14px;margin-bottom:12px;cursor:pointer;transition:all .18s ease`,
+          dotStyle: `width:22px;height:22px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;border:1px solid ${on?'#1a1a18':'#cfcbc2'};background:${on?'#1a1a18':'transparent'};color:${on?'#faf9f6':'transparent'}`,
+          slotStyle: `margin-top:12px;padding:9px 12px;border-radius:9px;display:flex;align-items:center;justify-content:space-between;background:${on?'#f5ecd6':'#ebe8e0'}`
+        };
+      })
+    };
+  }
+}
+
+</script>
+</body>
+</html>

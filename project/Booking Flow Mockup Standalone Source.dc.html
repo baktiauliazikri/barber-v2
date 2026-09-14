@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#e7e5e0">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#e7e5e0"/>
+    <rect x="180" y="140" width="240" height="520" rx="40" fill="#faf9f6" stroke="#d6d3cb" stroke-width="6"/>
+    <rect x="480" y="140" width="240" height="520" rx="40" fill="#faf9f6" stroke="#d6d3cb" stroke-width="6"/>
+    <rect x="780" y="140" width="240" height="520" rx="40" fill="#1a1a18"/>
+    <rect x="820" y="560" width="160" height="56" rx="16" fill="#faf9f6"/>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#e7e5e0; font-family:'IBM Plex Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1a1a18; } a:hover { color:#8a6a2f; }
+  * { box-sizing:border-box; }
+</style>
+</helmet>
+
+<div style="padding:56px 48px 72px;background:#e7e5e0;min-height:100vh">
+
+  <div style="max-width:1200px;margin:0 0 44px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#5d594f;margin-bottom:14px">KONTUR BARBER ATELIER · BOOKING FLOW · REVISED</div>
+    <h1 style="font-family:'Instrument Serif',serif;font-size:52px;font-weight:400;line-height:1.05;margin:0 0 14px;color:#1a1a18;letter-spacing:-.015em">Five screens, one flow</h1>
+    <p style="font-size:16px;line-height:1.55;color:#5d594f;margin:0;max-width:62ch">Same booking journey, rebuilt around three rules: never truncate, never repeat what the user already confirmed, and never show a number that changes without explanation.</p>
+  </div>
+
+  <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
+
+    <!-- SCREEN 1 — BRANCH -->
+    <div style="width:390px">
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8a6a2f">01</div>
+        <div style="font-size:14px;font-weight:600;color:#1a1a18">Choose branch</div>
+      </div>
+      <div style="background:#faf9f6;border:1px solid #d6d3cb;border-radius:24px;overflow:hidden;height:1130px;display:flex;flex-direction:column;box-shadow:0 18px 44px rgba(30,28,24,.12)">
+        <div style="display:flex;align-items:center;gap:12px;padding:18px 20px 14px;border-bottom:1px solid #eceae4;flex-shrink:0">
+          <div style="width:34px;height:34px;border-radius:50%;border:1px solid #d6d3cb;display:flex;align-items:center;justify-content:center;font-size:15px;color:#33302a">←</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-family:'Instrument Serif',serif;font-size:19px;color:#1a1a18;line-height:1">KONTUR</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;color:#8d8880;margin-top:3px">BARBER ATELIER</div>
+          </div>
+          <div style="width:34px;height:34px;border-radius:50%;background:#1a1a18;display:flex;align-items:center;justify-content:center;color:#faf9f6;font-size:12px;font-weight:500">RP</div>
+        </div>
+        <div style="padding:14px 20px 12px;display:flex;align-items:center;gap:10px;flex-shrink:0">
+          <div style="display:flex;gap:4px;flex:1">
+            <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+            <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+            <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+            <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+            <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6e6a61">01/05</div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:8px 20px 20px">
+          <h2 style="font-family:'Instrument Serif',serif;font-size:32px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18">Choose a branch<br>in Jakarta</h2>
+          <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 16px">Three ateliers, sorted by distance from you.</p>
+          <div style="display:flex;gap:8px;margin-bottom:18px">
+            <div style="padding:8px 14px;border-radius:20px;font-size:12.5px;font-weight:500;border:1px solid #1a1a18;background:#1a1a18;color:#faf9f6">Nearest</div>
+            <div style="padding:8px 14px;border-radius:20px;font-size:12.5px;font-weight:500;border:1px solid #ddd9d0;color:#5d594f">Soonest slot</div>
+          </div>
+          <sc-for list="{{ branches }}" as="b" hint-placeholder-count="3">
+            <div style="{{ b.card }}">
+              <div style="display:flex;gap:14px;align-items:flex-start">
+                <div style="width:72px;height:72px;border-radius:10px;flex-shrink:0;overflow:hidden;background:#e4e1d9">
+                  <svg width="72" height="72" viewBox="0 0 72 72" style="display:block">
+                    <defs><pattern id="{{ b.pid }}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                      <rect width="3" height="6" fill="#d9d5cb"></rect><rect x="3" width="3" height="6" fill="#e6e3da"></rect>
+                    </pattern></defs>
+                    <rect width="72" height="72" fill="{{ b.purl }}"></rect>
+                  </svg>
+                </div>
+                <div style="flex:1;min-width:0">
+                  <div style="display:flex;align-items:flex-start;gap:10px">
+                    <div style="flex:1;min-width:0">
+                      <div style="font-size:17px;font-weight:600;color:#1a1a18;line-height:1.25">{{ b.name }}</div>
+                      <div style="font-size:13px;color:#6e6a61;line-height:1.45;margin-top:4px">{{ b.address }}</div>
+                    </div>
+                    <div style="{{ b.dot }}">✓</div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:6px;margin-top:9px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#33302a">
+                    <span style="color:#8a6a2f">◈</span><span>{{ b.distance }}</span>
+                    <span style="color:#b5ad9b">·</span><span>{{ b.travel }}</span>
+                  </div>
+                </div>
+              </div>
+              <div style="{{ b.slotBox }}">
+                <span style="font-size:13px;color:#5d594f">Next slot today</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:#1a1a18">{{ b.slot }}</span>
+              </div>
+            </div>
+          </sc-for>
+          <div style="margin-top:16px;padding:14px 16px;background:#f1efe8;border-radius:12px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#5d594f;margin-bottom:6px">AT EVERY BRANCH</div>
+            <div style="font-size:13px;line-height:1.5;color:#5d594f">Certified master barbers, single-origin espresso, acoustically treated rooms.</div>
+          </div>
+        </div>
+        <div style="flex-shrink:0;border-top:1px solid #e6e3db;padding:14px 20px 18px">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#5d594f">BRANCH</div>
+            <div style="font-size:14px;font-weight:600;color:#1a1a18">Kemang Flagship</div>
+          </div>
+          <div style="background:#1a1a18;color:#faf9f6;border-radius:12px;height:54px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500">
+            <span>Continue to services</span><span style="font-size:16px">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 2 — SERVICE -->
+    <div style="width:390px">
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8a6a2f">02</div>
+        <div style="font-size:14px;font-weight:600;color:#1a1a18">Choose service</div>
+      </div>
+      <div style="background:#faf9f6;border:1px solid #d6d3cb;border-radius:24px;overflow:hidden;height:1130px;display:flex;flex-direction:column;box-shadow:0 18px 44px rgba(30,28,24,.12)">
+        <div style="display:flex;align-items:center;gap:12px;padding:18px 20px 14px;border-bottom:1px solid #eceae4;flex-shrink:0">
+          <div style="width:34px;height:34px;border-radius:50%;border:1px solid #d6d3cb;display:flex;align-items:center;justify-content:center;font-size:15px;color:#33302a">←</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-family:'Instrument Serif',serif;font-size:19px;color:#1a1a18;line-height:1">KONTUR</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;color:#8d8880;margin-top:3px">BARBER ATELIER</div>
+          </div>
+          <div style="width:34px;height:34px;border-radius:50%;background:#1a1a18;display:flex;align-items:center;justify-content:center;color:#faf9f6;font-size:12px;font-weight:500">RP</div>
+        </div>
+        <div style="padding:14px 20px 12px;flex-shrink:0">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+            <div style="display:flex;gap:4px;flex:1">
+              <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+              <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+              <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+              <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+              <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6e6a61">02/05</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5d594f">KEMANG FLAGSHIP</div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:8px 20px 20px">
+          <h2 style="font-family:'Instrument Serif',serif;font-size:32px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18">Choose a service</h2>
+          <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 20px">One main service. Add-ons come after.</p>
+          <sc-for list="{{ services }}" as="s" hint-placeholder-count="3">
+            <div style="{{ s.card }}">
+              <div style="display:flex;align-items:flex-start;gap:14px">
+                <div style="flex:1;min-width:0">
+                  <sc-if value="{{ s.badge }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#7a5c26;border:1px solid #d8c79a;background:#f5ecd6;padding:2px 6px;border-radius:3px;margin-bottom:6px">MOST BOOKED</div>
+                  </sc-if>
+                  <div style="font-size:17px;font-weight:600;color:#1a1a18;line-height:1.25">{{ s.name }}</div>
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5d594f;margin-top:6px">{{ s.meta }}</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+                  <div style="font-family:'Instrument Serif',serif;font-size:23px;color:#1a1a18;line-height:1;white-space:nowrap">{{ s.price }}</div>
+                  <div style="{{ s.dot }}">✓</div>
+                </div>
+              </div>
+              <div style="font-size:13.5px;line-height:1.5;color:#5d594f;margin-top:12px">{{ s.summary }}</div>
+              <div style="margin-top:11px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8a6a2f;display:inline-block;border-bottom:1px solid #e0d2ae;padding-bottom:2px">{{ s.toggle }}</div>
+              <sc-if value="{{ s.open }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:12px;padding-top:12px;border-top:1px dashed #ddd9d0;display:flex;flex-direction:column;gap:7px">
+                  <sc-for list="{{ s.details }}" as="d" hint-placeholder-count="3">
+                    <div style="display:flex;gap:9px;font-size:13px;line-height:1.45;color:#5d594f">
+                      <span style="color:#a8a094">—</span><span>{{ d }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+          <div style="margin-top:18px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#5d594f;margin-bottom:10px">ADD ON TO THE SIGNATURE CUT</div>
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 14px;border:1px solid #e2dfd7;background:#f4f2ec;border-radius:12px">
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14.5px;font-weight:500;color:#1a1a18">Charcoal Scalp Detox</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5d594f;margin-top:4px">+RP 35.000 · 10 MIN</div>
+              </div>
+              <div style="width:42px;height:24px;border-radius:14px;background:#dbd7ce;padding:3px;display:flex;justify-content:flex-start;flex-shrink:0">
+                <div style="width:18px;height:18px;border-radius:50%;background:#faf9f6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="flex-shrink:0;border-top:1px solid #e6e3db;padding:14px 20px 18px">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#5d594f">45 MIN · 1 ITEM</div>
+            <div style="font-family:'Instrument Serif',serif;font-size:25px;color:#1a1a18;line-height:1">Rp 120.000</div>
+          </div>
+          <div style="background:#1a1a18;color:#faf9f6;border-radius:12px;height:54px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500">
+            <span>Continue to barber</span><span style="font-size:16px">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 3 — BARBER -->
+    <div style="width:390px">
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8a6a2f">03</div>
+        <div style="font-size:14px;font-weight:600;color:#1a1a18">Choose barber</div>
+      </div>
+      <div style="background:#faf9f6;border:1px solid #d6d3cb;border-radius:24px;overflow:hidden;height:1130px;display:flex;flex-direction:column;box-shadow:0 18px 44px rgba(30,28,24,.12)">
+        <div style="display:flex;align-items:center;gap:12px;padding:18px 20px 14px;border-bottom:1px solid #eceae4;flex-shrink:0">
+          <div style="width:34px;height:34px;border-radius:50%;border:1px solid #d6d3cb;display:flex;align-items:center;justify-content:center;font-size:15px;color:#33302a">←</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-family:'Instrument Serif',serif;font-size:19px;color:#1a1a18;line-height:1">KONTUR</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;color:#8d8880;margin-top:3px">BARBER ATELIER</div>
+          </div>
+          <div style="width:34px;height:34px;border-radius:50%;background:#1a1a18;display:flex;align-items:center;justify-content:center;color:#faf9f6;font-size:12px;font-weight:500">RP</div>
+        </div>
+        <div style="padding:14px 20px 12px;flex-shrink:0">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+            <div style="display:flex;gap:4px;flex:1">
+              <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+              <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+              <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+              <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+              <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6e6a61">03/05</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5d594f">KEMANG · SIGNATURE CUT 45 MIN</div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:8px 20px 20px">
+          <h2 style="font-family:'Instrument Serif',serif;font-size:32px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18">Choose a barber</h2>
+          <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 20px">Three master artisans available for this service.</p>
+          <sc-for list="{{ barbers }}" as="b" hint-placeholder-count="3">
+            <div style="{{ b.card }}">
+              <div style="display:flex;gap:14px;align-items:flex-start">
+                <div style="width:80px;height:80px;border-radius:10px;flex-shrink:0;overflow:hidden;background:#e4e1d9">
+                  <svg width="80" height="80" viewBox="0 0 80 80" style="display:block">
+                    <defs><pattern id="{{ b.pid }}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                      <rect width="3" height="6" fill="#d9d5cb"></rect><rect x="3" width="3" height="6" fill="#e6e3da"></rect>
+                    </pattern></defs>
+                    <rect width="80" height="80" fill="{{ b.purl }}"></rect>
+                  </svg>
+                </div>
+                <div style="flex:1;min-width:0">
+                  <div style="display:flex;align-items:flex-start;gap:10px">
+                    <div style="flex:1;min-width:0">
+                      <div style="font-size:17px;font-weight:600;color:#1a1a18;line-height:1.25">{{ b.name }}</div>
+                      <div style="font-size:13px;color:#6e6a61;margin-top:4px">{{ b.role }}</div>
+                    </div>
+                    <div style="{{ b.dot }}">✓</div>
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:9px">
+                    <sc-for list="{{ b.tags }}" as="t" hint-placeholder-count="2">
+                      <div style="font-size:11px;color:#5d594f;background:#ebe8e0;border-radius:5px;padding:3px 8px">{{ t }}</div>
+                    </sc-for>
+                  </div>
+                </div>
+              </div>
+              <div style="{{ b.slotBox }}">
+                <span style="font-size:13px;color:#5d594f">{{ b.reviews }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:#1a1a18">{{ b.slot }}</span>
+              </div>
+            </div>
+          </sc-for>
+          <div style="display:flex;align-items:flex-start;gap:12px;margin-top:6px;padding:14px;border-radius:14px;border:1px dashed #cdc8bd">
+            <div style="flex:1;min-width:0">
+              <div style="font-size:15px;font-weight:500;color:#1a1a18">Any available barber</div>
+              <div style="font-size:13px;line-height:1.45;color:#6e6a61;margin-top:4px">Matched to the earliest slot — today 11:15.</div>
+            </div>
+            <div style="width:22px;height:22px;border-radius:50%;flex-shrink:0;border:1px solid #cfcbc2"></div>
+          </div>
+        </div>
+        <div style="flex-shrink:0;border-top:1px solid #e6e3db;padding:14px 20px 18px">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#5d594f">BARBER</div>
+            <div style="font-size:14px;font-weight:600;color:#1a1a18">Andi Pratama</div>
+          </div>
+          <div style="background:#1a1a18;color:#faf9f6;border-radius:12px;height:54px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500">
+            <span>Continue to schedule</span><span style="font-size:16px">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 4 — SCHEDULE -->
+    <div style="width:390px">
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8a6a2f">04</div>
+        <div style="font-size:14px;font-weight:600;color:#1a1a18">Choose date &amp; time</div>
+      </div>
+      <div style="background:#faf9f6;border:1px solid #d6d3cb;border-radius:24px;overflow:hidden;height:1130px;display:flex;flex-direction:column;box-shadow:0 18px 44px rgba(30,28,24,.12)">
+        <div style="display:flex;align-items:center;gap:12px;padding:18px 20px 14px;border-bottom:1px solid #eceae4;flex-shrink:0">
+          <div style="width:34px;height:34px;border-radius:50%;border:1px solid #d6d3cb;display:flex;align-items:center;justify-content:center;font-size:15px;color:#33302a">←</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-family:'Instrument Serif',serif;font-size:19px;color:#1a1a18;line-height:1">KONTUR</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;color:#8d8880;margin-top:3px">BARBER ATELIER</div>
+          </div>
+          <div style="width:34px;height:34px;border-radius:50%;background:#1a1a18;display:flex;align-items:center;justify-content:center;color:#faf9f6;font-size:12px;font-weight:500">RP</div>
+        </div>
+        <div style="padding:14px 20px 12px;flex-shrink:0">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+            <div style="display:flex;gap:4px;flex:1">
+              <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+              <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+              <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+              <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+              <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6e6a61">04/05</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5d594f">KEMANG · ANDI PRATAMA · 45 MIN</div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:8px 20px 20px">
+          <h2 style="font-family:'Instrument Serif',serif;font-size:32px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18">Choose a time</h2>
+          <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 18px">All times in WIB. Session runs 45 minutes.</p>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px">
+            <div style="font-size:15px;font-weight:600;color:#1a1a18">October 2026</div>
+            <div style="display:flex;gap:6px">
+              <div style="width:28px;height:28px;border-radius:8px;border:1px solid #ddd9d0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#6e6a61">‹</div>
+              <div style="width:28px;height:28px;border-radius:8px;border:1px solid #ddd9d0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#1a1a18">›</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:20px">
+            <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+              <div style="{{ d.style }}">
+                <div style="{{ d.dowStyle }}">{{ d.dow }}</div>
+                <div style="{{ d.numStyle }}">{{ d.num }}</div>
+                <div style="{{ d.countStyle }}">{{ d.count }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+            <div style="margin-bottom:18px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#5d594f;margin-bottom:9px">{{ g.label }}</div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+                <sc-for list="{{ g.slots }}" as="s" hint-placeholder-count="3">
+                  <div style="{{ s.style }}">{{ s.time }}</div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="flex-shrink:0;border-top:1px solid #e6e3db;padding:12px 20px 18px">
+          <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:#f5ecd6;border-radius:9px;margin-bottom:11px">
+            <div style="width:6px;height:6px;border-radius:50%;background:#8a6a2f;flex-shrink:0"></div>
+            <div style="font-size:12.5px;color:#5d4a22;flex:1">Slot held for you</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:#5d4a22">09:57</div>
+          </div>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:11px">
+            <div style="font-size:14px;font-weight:600;color:#1a1a18">Wed, 14 Oct · 14:00</div>
+            <div style="font-family:'Instrument Serif',serif;font-size:22px;color:#1a1a18;line-height:1">Rp 120.000</div>
+          </div>
+          <div style="background:#1a1a18;color:#faf9f6;border-radius:12px;height:54px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500">
+            <span>Continue to your details</span><span style="font-size:16px">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 5 — REVIEW -->
+    <div style="width:390px">
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8a6a2f">05</div>
+        <div style="font-size:14px;font-weight:600;color:#1a1a18">Review &amp; confirm</div>
+      </div>
+      <div style="background:#faf9f6;border:1px solid #d6d3cb;border-radius:24px;overflow:hidden;height:1130px;display:flex;flex-direction:column;box-shadow:0 18px 44px rgba(30,28,24,.12)">
+        <div style="display:flex;align-items:center;gap:12px;padding:18px 20px 14px;border-bottom:1px solid #eceae4;flex-shrink:0">
+          <div style="width:34px;height:34px;border-radius:50%;border:1px solid #d6d3cb;display:flex;align-items:center;justify-content:center;font-size:15px;color:#33302a">←</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-family:'Instrument Serif',serif;font-size:19px;color:#1a1a18;line-height:1">KONTUR</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;color:#8d8880;margin-top:3px">BARBER ATELIER</div>
+          </div>
+          <div style="width:34px;height:34px;border-radius:50%;background:#1a1a18;display:flex;align-items:center;justify-content:center;color:#faf9f6;font-size:12px;font-weight:500">RP</div>
+        </div>
+        <div style="padding:14px 20px 12px;display:flex;align-items:center;gap:10px;flex-shrink:0">
+          <div style="display:flex;gap:4px;flex:1">
+            <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+            <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+            <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+            <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+            <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6e6a61">05/05</div>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:8px 20px 20px">
+          <h2 style="font-family:'Instrument Serif',serif;font-size:32px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18">Review &amp; confirm</h2>
+          <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 20px">No prepayment. Pay at the atelier when you are done.</p>
+          <div style="border:1px solid #e2dfd7;background:#f4f2ec;border-radius:14px;padding:4px 14px;margin-bottom:22px">
+            <sc-for list="{{ rows }}" as="r" hint-placeholder-count="3">
+              <div style="{{ r.style }}">
+                <div style="flex:1;min-width:0">
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#5d594f">{{ r.label }}</div>
+                  <div style="font-size:15px;font-weight:500;color:#1a1a18;margin-top:3px;line-height:1.35">{{ r.value }}</div>
+                </div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8a6a2f;flex-shrink:0;border-bottom:1px solid #e0d2ae;padding-bottom:1px">CHANGE</div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5d594f;margin-bottom:12px">YOUR DETAILS</div>
+          <div style="margin-bottom:14px">
+            <div style="font-size:13px;color:#5d594f;margin-bottom:6px">Full name</div>
+            <div style="position:relative">
+              <div style="padding:13px 14px;font-size:15px;color:#1a1a18;background:#fffefb;border:1px solid #ddd9d0;border-radius:11px">Raditya Pratama</div>
+              <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5d594f;background:#efece4;padding:3px 7px;border-radius:4px">FROM ACCOUNT</div>
+            </div>
+          </div>
+          <div style="margin-bottom:14px">
+            <div style="font-size:13px;color:#5d594f;margin-bottom:6px">WhatsApp number <span style="color:#5d594f">— your ticket goes here</span></div>
+            <div style="position:relative">
+              <div style="padding:13px 14px;font-size:15px;color:#1a1a18;background:#fffefb;border:1px solid #ddd9d0;border-radius:11px">+62 812-9842-1100</div>
+              <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5d594f;background:#efece4;padding:3px 7px;border-radius:4px">FROM ACCOUNT</div>
+            </div>
+          </div>
+          <div style="margin-bottom:18px">
+            <div style="font-size:13px;color:#5d594f;margin-bottom:6px">Note for your barber <span style="color:#5d594f">— optional</span></div>
+            <div style="padding:13px 14px;font-size:14.5px;line-height:1.5;color:#a5a096;background:#fffefb;border:1px solid #ddd9d0;border-radius:11px;height:74px">Taper fade on the sides, keep length on top.</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:13px 14px;border:1px solid #e2dfd7;background:#f4f2ec;border-radius:12px">
+            <div style="flex:1;min-width:0">
+              <div style="font-size:14.5px;font-weight:500;color:#1a1a18">Single-origin espresso</div>
+              <div style="font-size:12.5px;color:#6e6a61;margin-top:3px">House blend, served in the lounge · Free</div>
+            </div>
+            <div style="width:42px;height:24px;border-radius:14px;background:#dbd7ce;padding:3px;display:flex;justify-content:flex-start;flex-shrink:0">
+              <div style="width:18px;height:18px;border-radius:50%;background:#faf9f6"></div>
+            </div>
+          </div>
+        </div>
+        <div style="flex-shrink:0;border-top:1px solid #e6e3db;padding:12px 20px 18px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px">
+            <div style="font-size:15px;font-weight:600;color:#1a1a18">Total</div>
+            <div style="font-family:'Instrument Serif',serif;font-size:27px;color:#1a1a18;line-height:1">Rp 120.000</div>
+          </div>
+          <div style="font-size:12.5px;color:#5d594f;text-align:center;margin-bottom:11px">Free cancellation up to 2 hours before.</div>
+          <div style="background:#1a1a18;color:#faf9f6;border-radius:12px;height:54px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500">
+            <span>Confirm booking</span><span style="font-size:16px">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const DOW = ['MON','TUE','WED','THU','FRI','SAT','SUN'];
+const DAY_NUMS = [12,13,14,15,16,17,18];
+const COUNTS = [3,5,8,4,2,6,0];
+
+class Component extends DCLogic {
+  renderVals() {
+    const dot = on => `width:22px;height:22px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;border:1px solid ${on?'#1a1a18':'#cfcbc2'};background:${on?'#1a1a18':'transparent'};color:${on?'#faf9f6':'transparent'}`;
+    const card = on => `border:1px solid ${on?'#1a1a18':'#e2dfd7'};border-left:${on?'4px':'1px'} solid ${on?'#1a1a18':'#e2dfd7'};background:${on?'#fffefb':'#f4f2ec'};border-radius:14px;padding:14px;margin-bottom:12px`;
+    const box = on => `margin-top:12px;padding:9px 12px;border-radius:9px;display:flex;align-items:center;justify-content:space-between;background:${on?'#f5ecd6':'#ebe8e0'}`;
+
+    return {
+      branches: [
+        { id:'kemang', name:'Kemang Flagship', address:'Jl. Kemang Raya No. 18, South Jakarta', distance:'1,8 KM', travel:'8 min drive', slot:'14:30', on:true },
+        { id:'senopati', name:'Senopati Atelier', address:'Jl. Senopati No. 42, Kebayoran Baru', distance:'3,4 KM', travel:'14 min drive', slot:'11:15' },
+        { id:'menteng', name:'Menteng Heritage', address:'Jl. Teuku Cik Ditiro No. 12, Central Jakarta', distance:'7,9 KM', travel:'26 min drive', slot:'16:00' }
+      ].map(b => ({ ...b, pid:'b-'+b.id, purl:`url(#b-${b.id})`, card:card(!!b.on), dot:dot(!!b.on), slotBox:box(!!b.on) })),
+
+      services: [
+        { name:'The Signature Cut', price:'Rp 120.000', meta:'45 MIN · HOT TOWEL', on:true, open:true,
+          summary:'Precision scissor and taper work, finished with a hot towel.',
+          details:['Head shape read before the first cut','Precision scissor & taper work','Botanical steam towel','Razor neckline cleanup'] },
+        { name:'Beard Sculpt & Sharpen', price:'Rp 80.000', meta:'30 MIN · FEATHER RAZOR',
+          summary:'Reshaped beard and a razor-sharp cheek line-up.' },
+        { name:'Executive Grooming Ritual', price:'Rp 180.000', meta:'75 MIN · FULL PACKAGE', badge:true,
+          summary:'Cut, beard, scalp detox and cold towel in one sitting.' }
+      ].map(s => ({ ...s, details: s.details || [], toggle: s.open ? 'HIDE DETAILS' : 'SEE DETAILS', card:card(!!s.on), dot:dot(!!s.on) })),
+
+      barbers: [
+        { id:'andi', name:'Andi Pratama', role:'Lead Artisan · 8 years', reviews:'420 reviews', slot:'Today 14:30', tags:['Classic scissor','Anatomic taper'], on:true },
+        { id:'kevin', name:'Kevin Ardiansyah', role:'Master Specialist · 6 years', reviews:'290 reviews', slot:'Today 11:15', tags:['Modern crop','Burst fade','Texture'] },
+        { id:'budi', name:'Budi Hartono', role:'Senior Master · 9 years', reviews:'510 reviews', slot:'Tomorrow 09:00', tags:['Wet shave','Razor work'] }
+      ].map(b => ({ ...b, pid:'a-'+b.id, purl:`url(#a-${b.id})`, card:card(!!b.on), dot:dot(!!b.on), slotBox:box(!!b.on) })),
+
+      days: DAY_NUMS.map((num,i) => {
+        const on = num === 14, none = COUNTS[i] === 0;
+        return {
+          num, dow: DOW[i], count: none ? '—' : COUNTS[i],
+          style: `padding:8px 2px 7px;border-radius:9px;text-align:center;border:1px solid ${on?'#1a1a18':'#e2dfd7'};background:${on?'#1a1a18':(none?'transparent':'#f4f2ec')};opacity:${none?.55:1}`,
+          dowStyle: `font-family:'IBM Plex Mono',monospace;font-size:10px;color:${on?'#b9b3a4':'#6e6a61'}`,
+          numStyle: `font-size:16px;font-weight:600;margin-top:3px;color:${on?'#faf9f6':'#1a1a18'}`,
+          countStyle: `font-family:'IBM Plex Mono',monospace;font-size:11px;margin-top:3px;color:${on?'#c9c0a8':'#5d594f'}`
+        };
+      }),
+
+      groups: [
+        { label:'MORNING · 09:00–12:00', times:['10:00','10:45'] },
+        { label:'AFTERNOON · 13:00–17:00', times:['13:00','14:00','15:00','16:30'] },
+        { label:'EVENING · 18:00–21:00', times:['19:00','20:00'] }
+      ].map(g => ({
+        label: g.label,
+        slots: g.times.map(t => {
+          const on = t === '14:00';
+          return { time:t, style:`padding:13px 6px;border-radius:10px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;border:1px solid ${on?'#1a1a18':'#e2dfd7'};background:${on?'#1a1a18':'#f4f2ec'};color:${on?'#faf9f6':'#1a1a18'}` };
+        })
+      })),
+
+      rows: [
+        { label:'LOCATION', value:'Kemang Flagship' },
+        { label:'SCHEDULE', value:'Wednesday, 14 October 2026 · 14:00 WIB' },
+        { label:'BARBER', value:'Andi Pratama' }
+      ].map((r,i,a) => ({ ...r, style:`display:flex;align-items:center;gap:12px;padding:13px 0;${i < a.length-1 ? 'border-bottom:1px solid #e6e3db;' : ''}` }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

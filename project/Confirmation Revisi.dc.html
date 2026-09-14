@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#e7e5e0; font-family:'IBM Plex Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1a1a18; } a:hover { color:#8a6a2f; }
+  * { box-sizing:border-box; }
+  input, textarea { font-family:inherit; }
+  input:focus, textarea:focus { outline:none; border-color:#1a1a18 !important; }
+  textarea::placeholder, input::placeholder { color:#a5a096; }
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;justify-content:center;padding:32px 16px;background:#e7e5e0">
+<div style="width:390px;max-width:100%;background:#faf9f6;border:1px solid #d6d3cb;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;height:844px;box-shadow:0 24px 60px rgba(30,28,24,.14)">
+
+  <div style="display:flex;align-items:center;gap:12px;padding:18px 20px 14px;background:#faf9f6;border-bottom:1px solid #eceae4;flex-shrink:0">
+    <div style="width:34px;height:34px;border-radius:50%;border:1px solid #d6d3cb;display:flex;align-items:center;justify-content:center;font-size:15px;color:#33302a;cursor:pointer">←</div>
+    <div style="flex:1;min-width:0">
+      <div style="font-family:'Instrument Serif',serif;font-size:19px;letter-spacing:.02em;color:#1a1a18;line-height:1">KONTUR</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;color:#9a968c;margin-top:3px">BARBER ATELIER</div>
+    </div>
+    <div style="width:34px;height:34px;border-radius:50%;background:#1a1a18;display:flex;align-items:center;justify-content:center;color:#faf9f6;font-size:12px;font-weight:500">RP</div>
+  </div>
+
+  <div style="padding:14px 20px 12px;flex-shrink:0">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="display:flex;gap:4px;flex:1">
+        <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+        <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+        <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+        <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+        <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#9a968c">05/05</div>
+    </div>
+  </div>
+
+  <div style="flex:1;overflow-y:auto;padding:8px 20px 20px">
+    <h1 style="font-family:'Instrument Serif',serif;font-size:34px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18;letter-spacing:-.01em">Periksa & konfirmasi</h1>
+    <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 20px;max-width:32ch">Tidak ada pembayaran di muka. Bayar di atelier setelah selesai.</p>
+
+    <div style="border:1px solid #e2dfd7;background:#f4f2ec;border-radius:14px;padding:4px 14px;margin-bottom:22px">
+      <sc-for list="{{ rows }}" as="r" hint-placeholder-count="3">
+        <div style="{{ r.style }}">
+          <div style="flex:1;min-width:0">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#5d594f">{{ r.label }}</div>
+            <div style="font-size:15px;font-weight:500;color:#1a1a18;margin-top:3px;line-height:1.35">{{ r.value }}</div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8a6a2f;cursor:pointer;flex-shrink:0;border-bottom:1px solid #e0d2ae;padding-bottom:1px">UBAH</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5d594f;margin-bottom:12px">DATA KAMU</div>
+
+    <div style="margin-bottom:14px">
+      <div style="font-size:13px;color:#5d594f;margin-bottom:6px">Nama lengkap</div>
+      <div style="position:relative">
+        <input defaultValue="Raditya Pratama" style="width:100%;padding:13px 14px;font-size:15px;color:#1a1a18;background:#fffefb;border:1px solid #ddd9d0;border-radius:11px" />
+        <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5d594f;background:#efece4;padding:3px 7px;border-radius:4px">DARI AKUN</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:14px">
+      <div style="font-size:13px;color:#5d594f;margin-bottom:6px">Nomor WhatsApp <span style="color:#5d594f">— tiket dikirim ke sini</span></div>
+      <div style="position:relative">
+        <input defaultValue="+62 812-9842-1100" style="width:100%;padding:13px 14px;font-size:15px;color:#1a1a18;background:#fffefb;border:1px solid #ddd9d0;border-radius:11px" />
+        <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5d594f;background:#efece4;padding:3px 7px;border-radius:4px">DARI AKUN</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:20px">
+      <div style="font-size:13px;color:#5d594f;margin-bottom:6px">Catatan untuk barber <span style="color:#5d594f">— opsional</span></div>
+      <textarea rows="3" placeholder="Misal: taper fade di samping, atas dibiarkan panjang." style="width:100%;padding:13px 14px;font-size:14.5px;line-height:1.5;color:#1a1a18;background:#fffefb;border:1px solid #ddd9d0;border-radius:11px;resize:none"></textarea>
+    </div>
+
+    <div onClick="{{ toggleEspresso }}" style="{{ espressoStyle }}">
+      <div style="flex:1;min-width:0">
+        <div style="font-size:14.5px;font-weight:500;color:#1a1a18">Single-origin espresso</div>
+        <div style="font-size:12.5px;color:#6e6a61;margin-top:3px">House blend, disajikan di lounge · Gratis</div>
+      </div>
+      <div style="{{ switchStyle }}"><div style="width:18px;height:18px;border-radius:50%;background:#faf9f6"></div></div>
+    </div>
+
+    <div style="margin-top:20px;border-top:1px solid #e6e3db;padding-top:16px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+        <div style="font-size:14.5px;color:#5d594f">The Signature Cut · 45 menit</div>
+        <div style="font-size:14.5px;color:#1a1a18">Rp 120.000</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding-top:12px;border-top:1px solid #eceae4">
+        <div style="font-size:15px;font-weight:600;color:#1a1a18">Total</div>
+        <div style="font-family:'Instrument Serif',serif;font-size:30px;color:#1a1a18;line-height:1">Rp 120.000</div>
+      </div>
+      <div style="font-size:12.5px;color:#5d594f;margin-top:6px">Sudah termasuk pajak dan biaya layanan.</div>
+    </div>
+
+    <div style="height:14px"></div>
+  </div>
+
+  <div style="flex-shrink:0;border-top:1px solid #e6e3db;background:#faf9f6;padding:12px 20px 18px">
+    <div style="font-size:12.5px;color:#6e6a61;text-align:center;margin-bottom:11px">Bisa dibatalkan gratis sampai 2 jam sebelum jadwal.</div>
+    <div style="background:#1a1a18;color:#faf9f6;border-radius:12px;height:54px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500;cursor:pointer" style-hover="background:#2e2b26">
+      <span>Konfirmasi booking</span><span style="font-size:16px">→</span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:422,&quot;height&quot;:908}}">
+const ROWS = [
+  { label:'LOKASI', value:'Kemang Flagship' },
+  { label:'JADWAL', value:'Rabu, 14 Oktober 2026 · 14:00 WIB' },
+  { label:'BARBER', value:'Andi Pratama' }
+];
+
+class Component extends DCLogic {
+  state = { espresso:false };
+
+  renderVals() {
+    const on = this.state.espresso;
+    return {
+      toggleEspresso: () => this.setState(s => ({ espresso: !s.espresso })),
+      espressoStyle: `display:flex;align-items:center;gap:12px;padding:13px 14px;border:1px solid ${on?'#1a1a18':'#e2dfd7'};background:${on?'#fffefb':'#f4f2ec'};border-radius:12px;cursor:pointer;transition:all .18s ease`,
+      switchStyle: `width:42px;height:24px;border-radius:14px;background:${on?'#1a1a18':'#dbd7ce'};padding:3px;display:flex;justify-content:${on?'flex-end':'flex-start'};transition:all .18s ease;flex-shrink:0`,
+      rows: ROWS.map((r,i) => ({
+        ...r,
+        style: `display:flex;align-items:center;gap:12px;padding:13px 0;${i < ROWS.length-1 ? 'border-bottom:1px solid #e6e3db;' : ''}`
+      }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

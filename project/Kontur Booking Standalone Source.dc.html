@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#e7e5e0">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#e7e5e0"/>
+    <rect x="470" y="110" width="260" height="580" rx="44" fill="#faf9f6" stroke="#1a1a18" stroke-width="8"/>
+    <rect x="510" y="210" width="180" height="18" rx="9" fill="#1a1a18"/>
+    <rect x="510" y="260" width="180" height="90" rx="14" fill="#f5ecd6" stroke="#1a1a18" stroke-width="4"/>
+    <rect x="510" y="370" width="180" height="90" rx="14" fill="#f4f2ec"/>
+    <rect x="510" y="580" width="180" height="52" rx="16" fill="#1a1a18"/>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#e7e5e0; font-family:'IBM Plex Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1a1a18; } a:hover { color:#8a6a2f; }
+  * { box-sizing:border-box; }
+  input, textarea { font-family:inherit; }
+  input:focus, textarea:focus { outline:none; border-color:#1a1a18 !important; }
+  input::placeholder, textarea::placeholder { color:#a5a096; }
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;background:#e7e5e0">
+<div style="width:390px;max-width:100%;background:#faf9f6;border:1px solid #d6d3cb;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;height:844px;box-shadow:0 24px 60px rgba(30,28,24,.14)">
+
+  <div style="display:flex;align-items:center;gap:12px;padding:18px 20px 14px;border-bottom:1px solid #eceae4;flex-shrink:0">
+    <div onClick="{{ back }}" style="{{ backStyle }}">←</div>
+    <div style="flex:1;min-width:0">
+      <div style="font-family:'Instrument Serif',serif;font-size:19px;color:#1a1a18;line-height:1">KONTUR</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;color:#8d8880;margin-top:3px">BARBER ATELIER</div>
+    </div>
+    <div style="width:34px;height:34px;border-radius:50%;background:#1a1a18;display:flex;align-items:center;justify-content:center;color:#faf9f6;font-size:12px;font-weight:500">RP</div>
+  </div>
+
+  <sc-if value="{{ inFlow }}" hint-placeholder-val="{{ true }}">
+    <div style="padding:14px 20px 12px;flex-shrink:0">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="display:flex;gap:4px;flex:1">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+            <div style="{{ s.style }}"></div>
+          </sc-for>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6e6a61">{{ stepLabel }}</div>
+      </div>
+      <sc-if value="{{ crumb }}" hint-placeholder-val="{{ false }}">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5d594f;margin-top:10px">{{ crumb }}</div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <div style="flex:1;overflow-y:auto;padding:8px 20px 20px">
+
+    <!-- STEP 1 — BRANCH -->
+    <sc-if value="{{ isBranch }}" hint-placeholder-val="{{ true }}">
+      <div>
+        <h1 style="font-family:'Instrument Serif',serif;font-size:33px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18">Choose a branch<br>in Jakarta</h1>
+        <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 16px">Three ateliers, sorted by distance from you.</p>
+        <div style="display:flex;gap:8px;margin-bottom:18px">
+          <div onClick="{{ sortNear }}" style="{{ nearStyle }}">Nearest</div>
+          <div onClick="{{ sortSoon }}" style="{{ soonStyle }}">Soonest slot</div>
+        </div>
+        <sc-for list="{{ branches }}" as="b" hint-placeholder-count="3">
+          <div onClick="{{ b.select }}" style="{{ b.card }}">
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <div style="width:72px;height:72px;border-radius:10px;flex-shrink:0;overflow:hidden;background:#e4e1d9">
+                <svg width="72" height="72" viewBox="0 0 72 72" style="display:block">
+                  <defs><pattern id="{{ b.pid }}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                    <rect width="3" height="6" fill="#d9d5cb"></rect><rect x="3" width="3" height="6" fill="#e6e3da"></rect>
+                  </pattern></defs>
+                  <rect width="72" height="72" fill="{{ b.purl }}"></rect>
+                </svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;align-items:flex-start;gap:10px">
+                  <div style="flex:1;min-width:0">
+                    <div style="font-size:17px;font-weight:600;color:#1a1a18;line-height:1.25">{{ b.name }}</div>
+                    <div style="font-size:13px;color:#6e6a61;line-height:1.45;margin-top:4px">{{ b.address }}</div>
+                  </div>
+                  <div style="{{ b.dot }}">✓</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;margin-top:9px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#33302a">
+                  <span style="color:#8a6a2f">◈</span><span>{{ b.distance }}</span>
+                  <span style="color:#b5ad9b">·</span><span>{{ b.travel }}</span>
+                </div>
+              </div>
+            </div>
+            <div style="{{ b.slotBox }}">
+              <span style="font-size:13px;color:#5d594f">Next slot today</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:#1a1a18">{{ b.slot }}</span>
+            </div>
+          </div>
+        </sc-for>
+        <div style="margin-top:16px;padding:14px 16px;background:#f1efe8;border-radius:12px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#5d594f;margin-bottom:6px">AT EVERY BRANCH</div>
+          <div style="font-size:13px;line-height:1.5;color:#5d594f">Certified master barbers, single-origin espresso, acoustically treated rooms.</div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- STEP 2 — SERVICE -->
+    <sc-if value="{{ isService }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h1 style="font-family:'Instrument Serif',serif;font-size:33px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18">Choose a service</h1>
+        <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 20px">One main service. Add-ons come after.</p>
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="3">
+          <div onClick="{{ s.select }}" style="{{ s.card }}">
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <div style="flex:1;min-width:0">
+                <sc-if value="{{ s.badge }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#7a5c26;border:1px solid #d8c79a;background:#f5ecd6;padding:2px 6px;border-radius:3px;margin-bottom:6px">MOST BOOKED</div>
+                </sc-if>
+                <div style="font-size:17px;font-weight:600;color:#1a1a18;line-height:1.25">{{ s.name }}</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5d594f;margin-top:6px">{{ s.meta }}</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+                <div style="font-family:'Instrument Serif',serif;font-size:23px;color:#1a1a18;line-height:1;white-space:nowrap">{{ s.price }}</div>
+                <div style="{{ s.dot }}">✓</div>
+              </div>
+            </div>
+            <div style="font-size:13.5px;line-height:1.5;color:#5d594f;margin-top:12px">{{ s.summary }}</div>
+            <sc-if value="{{ s.open }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:12px;padding-top:12px;border-top:1px dashed #ddd9d0;display:flex;flex-direction:column;gap:7px">
+                <sc-for list="{{ s.details }}" as="d" hint-placeholder-count="3">
+                  <div style="display:flex;gap:9px;font-size:13px;line-height:1.45;color:#5d594f">
+                    <span style="color:#a8a094">—</span><span>{{ d }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <div onClick="{{ s.toggle }}" style="margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8a6a2f;cursor:pointer;display:inline-block;border-bottom:1px solid #e0d2ae;padding-bottom:2px">{{ s.toggleLabel }}</div>
+          </div>
+        </sc-for>
+        <div style="margin-top:18px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#5d594f;margin-bottom:10px">ADD ON TO {{ serviceNameCaps }}</div>
+          <sc-for list="{{ addons }}" as="a" hint-placeholder-count="2">
+            <div onClick="{{ a.toggle }}" style="{{ a.style }}">
+              <div style="flex:1;min-width:0">
+                <div style="font-size:14.5px;font-weight:500;color:#1a1a18">{{ a.name }}</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5d594f;margin-top:4px">{{ a.meta }}</div>
+              </div>
+              <div style="{{ a.switch }}"><div style="width:18px;height:18px;border-radius:50%;background:#faf9f6"></div></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- STEP 3 — BARBER -->
+    <sc-if value="{{ isBarber }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h1 style="font-family:'Instrument Serif',serif;font-size:33px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18">Choose a barber</h1>
+        <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 20px">Three master artisans available for this service.</p>
+        <sc-for list="{{ barbers }}" as="b" hint-placeholder-count="3">
+          <div onClick="{{ b.select }}" style="{{ b.card }}">
+            <div style="display:flex;gap:14px;align-items:flex-start">
+              <div style="width:80px;height:80px;border-radius:10px;flex-shrink:0;overflow:hidden;background:#e4e1d9">
+                <svg width="80" height="80" viewBox="0 0 80 80" style="display:block">
+                  <defs><pattern id="{{ b.pid }}" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                    <rect width="3" height="6" fill="#d9d5cb"></rect><rect x="3" width="3" height="6" fill="#e6e3da"></rect>
+                  </pattern></defs>
+                  <rect width="80" height="80" fill="{{ b.purl }}"></rect>
+                </svg>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;align-items:flex-start;gap:10px">
+                  <div style="flex:1;min-width:0">
+                    <div style="font-size:17px;font-weight:600;color:#1a1a18;line-height:1.25">{{ b.name }}</div>
+                    <div style="font-size:13px;color:#6e6a61;margin-top:4px">{{ b.role }}</div>
+                  </div>
+                  <div style="{{ b.dot }}">✓</div>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:9px">
+                  <sc-for list="{{ b.tags }}" as="t" hint-placeholder-count="2">
+                    <div style="font-size:11px;color:#5d594f;background:#ebe8e0;border-radius:5px;padding:3px 8px">{{ t }}</div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+            <div style="{{ b.slotBox }}">
+              <span style="font-size:13px;color:#5d594f">{{ b.reviews }}</span>
+              <span style="{{ b.slotText }}">{{ b.slot }}</span>
+            </div>
+          </div>
+        </sc-for>
+        <div onClick="{{ selectAny }}" style="{{ anyStyle }}">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:15px;font-weight:500;color:#1a1a18">Any available barber</div>
+            <div style="font-size:13px;line-height:1.45;color:#6e6a61;margin-top:4px">Matched to the earliest slot — today 11:15.</div>
+          </div>
+          <div style="{{ anyDot }}">✓</div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- STEP 4 — SCHEDULE -->
+    <sc-if value="{{ isSchedule }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h1 style="font-family:'Instrument Serif',serif;font-size:33px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18">Choose a time</h1>
+        <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 18px">All times in WIB. Session runs 45 minutes.</p>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px">
+          <div style="font-size:15px;font-weight:600;color:#1a1a18">October 2026</div>
+          <div style="display:flex;gap:6px">
+            <div style="width:28px;height:28px;border-radius:8px;border:1px solid #ddd9d0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#6e6a61">‹</div>
+            <div style="width:28px;height:28px;border-radius:8px;border:1px solid #ddd9d0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#1a1a18">›</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:20px">
+          <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+            <div onClick="{{ d.select }}" style="{{ d.style }}">
+              <div style="{{ d.dowStyle }}">{{ d.dow }}</div>
+              <div style="{{ d.numStyle }}">{{ d.num }}</div>
+              <div style="{{ d.countStyle }}">{{ d.count }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+          <div style="margin-bottom:18px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#5d594f;margin-bottom:9px">{{ g.label }}</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+              <sc-for list="{{ g.slots }}" as="s" hint-placeholder-count="3">
+                <div onClick="{{ s.select }}" style="{{ s.style }}">{{ s.time }}</div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <!-- STEP 5 — REVIEW -->
+    <sc-if value="{{ isReview }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h1 style="font-family:'Instrument Serif',serif;font-size:33px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18">Review &amp; confirm</h1>
+        <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 20px">No prepayment. Pay at the atelier when you are done.</p>
+        <div style="border:1px solid #e2dfd7;background:#f4f2ec;border-radius:14px;padding:4px 14px;margin-bottom:22px">
+          <sc-for list="{{ rows }}" as="r" hint-placeholder-count="3">
+            <div style="{{ r.style }}">
+              <div style="flex:1;min-width:0">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#5d594f">{{ r.label }}</div>
+                <div style="font-size:15px;font-weight:500;color:#1a1a18;margin-top:3px;line-height:1.35">{{ r.value }}</div>
+              </div>
+              <div onClick="{{ r.edit }}" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8a6a2f;cursor:pointer;flex-shrink:0;border-bottom:1px solid #e0d2ae;padding-bottom:1px">CHANGE</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#5d594f;margin-bottom:12px">YOUR DETAILS</div>
+        <div style="margin-bottom:14px">
+          <div style="font-size:13px;color:#5d594f;margin-bottom:6px">Full name</div>
+          <div style="position:relative">
+            <input defaultValue="Raditya Pratama" style="width:100%;padding:13px 96px 13px 14px;font-size:15px;color:#1a1a18;background:#fffefb;border:1px solid #ddd9d0;border-radius:11px" />
+            <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5d594f;background:#efece4;padding:3px 7px;border-radius:4px">FROM ACCOUNT</div>
+          </div>
+        </div>
+        <div style="margin-bottom:14px">
+          <div style="font-size:13px;color:#5d594f;margin-bottom:6px">WhatsApp number <span style="color:#5d594f">— your ticket goes here</span></div>
+          <div style="position:relative">
+            <input defaultValue="+62 812-9842-1100" style="width:100%;padding:13px 96px 13px 14px;font-size:15px;color:#1a1a18;background:#fffefb;border:1px solid #ddd9d0;border-radius:11px" />
+            <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#5d594f;background:#efece4;padding:3px 7px;border-radius:4px">FROM ACCOUNT</div>
+          </div>
+        </div>
+        <div style="margin-bottom:18px">
+          <div style="font-size:13px;color:#5d594f;margin-bottom:6px">Note for your barber <span style="color:#5d594f">— optional</span></div>
+          <textarea rows="3" placeholder="e.g. taper fade on the sides, keep length on top." style="width:100%;padding:13px 14px;font-size:14.5px;line-height:1.5;color:#1a1a18;background:#fffefb;border:1px solid #ddd9d0;border-radius:11px;resize:none"></textarea>
+        </div>
+        <sc-for list="{{ addons }}" as="a" hint-placeholder-count="2">
+          <div onClick="{{ a.toggle }}" style="{{ a.style }}">
+            <div style="flex:1;min-width:0">
+              <div style="font-size:14.5px;font-weight:500;color:#1a1a18">{{ a.name }}</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5d594f;margin-top:4px">{{ a.meta }}</div>
+            </div>
+            <div style="{{ a.switch }}"><div style="width:18px;height:18px;border-radius:50%;background:#faf9f6"></div></div>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <!-- DONE -->
+    <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+      <div style="padding-top:56px;text-align:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:#1a1a18;color:#faf9f6;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 22px">✓</div>
+        <h1 style="font-family:'Instrument Serif',serif;font-size:33px;font-weight:400;line-height:1.15;margin:0 0 10px;color:#1a1a18">You are booked</h1>
+        <p style="font-size:14.5px;line-height:1.55;color:#6e6a61;margin:0 auto 26px;max-width:28ch">Your ticket is on its way to WhatsApp.</p>
+        <div style="border:1px solid #e2dfd7;background:#f4f2ec;border-radius:14px;padding:4px 14px;text-align:left">
+          <sc-for list="{{ rows }}" as="r" hint-placeholder-count="3">
+            <div style="{{ r.style }}">
+              <div style="flex:1;min-width:0">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:#5d594f">{{ r.label }}</div>
+                <div style="font-size:15px;font-weight:500;color:#1a1a18;margin-top:3px;line-height:1.35">{{ r.value }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div onClick="{{ restart }}" style="margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#8a6a2f;cursor:pointer;display:inline-block;border-bottom:1px solid #e0d2ae;padding-bottom:2px">START OVER</div>
+      </div>
+    </sc-if>
+
+  </div>
+
+  <sc-if value="{{ inFlow }}" hint-placeholder-val="{{ true }}">
+    <div style="flex-shrink:0;border-top:1px solid #e6e3db;padding:12px 20px 18px">
+      <sc-if value="{{ showHold }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:#f5ecd6;border-radius:9px;margin-bottom:11px">
+          <div style="width:6px;height:6px;border-radius:50%;background:#8a6a2f;flex-shrink:0"></div>
+          <div style="font-size:12.5px;color:#5d4a22;flex:1">Slot held for you</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:#5d4a22">{{ hold }}</div>
+        </div>
+      </sc-if>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:11px">
+        <div style="{{ footLeftStyle }}">{{ footLeft }}</div>
+        <div style="{{ footRightStyle }}">{{ footRight }}</div>
+      </div>
+      <sc-if value="{{ isReview }}" hint-placeholder-val="{{ false }}">
+        <div style="font-size:12.5px;color:#5d594f;text-align:center;margin-bottom:11px">Free cancellation up to 2 hours before.</div>
+      </sc-if>
+      <div onClick="{{ next }}" style="{{ ctaStyle }}">
+        <span>{{ cta }}</span><span style="font-size:16px">→</span>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:422,&quot;height&quot;:908}}">
+const BRANCHES = [
+  { id:'kemang', name:'Kemang Flagship', address:'Jl. Kemang Raya No. 18, South Jakarta', km:1.8, travel:'8 min drive', slot:'14:30' },
+  { id:'senopati', name:'Senopati Atelier', address:'Jl. Senopati No. 42, Kebayoran Baru', km:3.4, travel:'14 min drive', slot:'11:15' },
+  { id:'menteng', name:'Menteng Heritage', address:'Jl. Teuku Cik Ditiro No. 12, Central Jakarta', km:7.9, travel:'26 min drive', slot:'16:00' }
+];
+const SERVICES = [
+  { id:'cut', name:'The Signature Cut', price:120000, mins:45, meta:'45 MIN · HOT TOWEL',
+    summary:'Precision scissor and taper work, finished with a hot towel.',
+    details:['Head shape read before the first cut','Precision scissor & taper work','Botanical steam towel','Razor neckline cleanup'] },
+  { id:'beard', name:'Beard Sculpt & Sharpen', price:80000, mins:30, meta:'30 MIN · FEATHER RAZOR',
+    summary:'Reshaped beard and a razor-sharp cheek line-up.',
+    details:['Freehand shaping to your jawline','Feather razor cheek line-up','Japanese sandalwood oil','Hot lather wrap'] },
+  { id:'ritual', name:'Executive Grooming Ritual', price:180000, mins:75, badge:true, meta:'75 MIN · FULL PACKAGE',
+    summary:'Cut, beard, scalp detox and cold towel in one sitting.',
+    details:['Full Signature Cut','Bespoke beard sculpt','Charcoal scalp detox','Pore-tightening cold towel'] }
+];
+const ADDONS = [
+  { id:'detox', name:'Charcoal Scalp Detox', price:35000, mins:10 },
+  { id:'shave', name:'Hot Lather Neck Shave', price:25000, mins:10 }
+];
+const BARBERS = [
+  { id:'andi', name:'Andi Pratama', role:'Lead Artisan · 8 years', reviews:'420 reviews', slot:'Today 14:30', today:true, tags:['Classic scissor','Anatomic taper'] },
+  { id:'kevin', name:'Kevin Ardiansyah', role:'Master Specialist · 6 years', reviews:'290 reviews', slot:'Today 11:15', today:true, tags:['Modern crop','Burst fade','Texture'] },
+  { id:'budi', name:'Budi Hartono', role:'Senior Master · 9 years', reviews:'510 reviews', slot:'Tomorrow 09:00', today:false, tags:['Wet shave','Razor work'] }
+];
+const DOW = ['MON','TUE','WED','THU','FRI','SAT','SUN'];
+const FULL_DOW = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const DAY_NUMS = [12,13,14,15,16,17,18];
+const SLOTS = {
+  12:{ morning:['09:15'], afternoon:['13:30'], evening:['19:30'] },
+  13:{ morning:['10:00','11:30'], afternoon:['14:00','16:00'], evening:['20:00'] },
+  14:{ morning:['10:00','10:45'], afternoon:['13:00','14:00','15:00','16:30'], evening:['19:00','20:00'] },
+  15:{ morning:['10:15'], afternoon:['13:00','15:45'], evening:['19:00'] },
+  16:{ morning:['11:00'], afternoon:['16:00'], evening:[] },
+  17:{ morning:['09:00','10:30'], afternoon:['13:15','14:45'], evening:['18:30','20:15'] },
+  18:{ morning:[], afternoon:[], evening:[] }
+};
+const GLABEL = { morning:'MORNING · 09:00–12:00', afternoon:'AFTERNOON · 13:00–17:00', evening:'EVENING · 18:00–21:00' };
+const STEPS = ['branch','service','barber','schedule','review'];
+const rp = n => 'Rp ' + n.toLocaleString('id-ID');
+
+class Component extends DCLogic {
+  state = {
+    step:'branch', sort:'near',
+    branch:'kemang', service:'cut', open:'cut', addons:{},
+    barber:'andi', day:14, time:null, left:600
+  };
+
+  componentDidMount() {
+    this.t = setInterval(() => {
+      if (this.state.step === 'schedule' && this.state.time) {
+        this.setState(s => ({ left: s.left > 0 ? s.left - 1 : 0 }));
+      }
+    }, 1000);
+  }
+  componentWillUnmount() { clearInterval(this.t); }
+
+  go(step) { this.setState({ step }); }
+
+  renderVals() {
+    const st = this.state;
+    const idx = STEPS.indexOf(st.step);
+    const inFlow = idx >= 0;
+    const branch = BRANCHES.find(b => b.id === st.branch);
+    const service = SERVICES.find(s => s.id === st.service);
+    const barber = st.barber === 'any' ? { name:'Any available barber' } : BARBERS.find(b => b.id === st.barber);
+
+    let total = service.price, mins = service.mins;
+    ADDONS.forEach(a => { if (st.addons[a.id]) { total += a.price; mins += a.mins; } });
+
+    const dayIdx = DAY_NUMS.indexOf(st.day);
+    const dateLabel = `${FULL_DOW[dayIdx]}, ${st.day} Oct`;
+    const m = Math.floor(st.left/60), sec = st.left % 60;
+
+    const dot = on => `width:22px;height:22px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;border:1px solid ${on?'#1a1a18':'#cfcbc2'};background:${on?'#1a1a18':'transparent'};color:${on?'#faf9f6':'transparent'}`;
+    const card = on => `border:1px solid ${on?'#1a1a18':'#e2dfd7'};border-left:${on?'4px':'1px'} solid ${on?'#1a1a18':'#e2dfd7'};background:${on?'#fffefb':'#f4f2ec'};border-radius:14px;padding:14px;margin-bottom:12px;cursor:pointer;transition:all .18s ease`;
+    const box = on => `margin-top:12px;padding:9px 12px;border-radius:9px;display:flex;align-items:center;justify-content:space-between;background:${on?'#f5ecd6':'#ebe8e0'}`;
+    const chip = on => `padding:8px 14px;border-radius:20px;font-size:12.5px;font-weight:500;cursor:pointer;transition:all .18s ease;border:1px solid ${on?'#1a1a18':'#ddd9d0'};background:${on?'#1a1a18':'transparent'};color:${on?'#faf9f6':'#5d594f'}`;
+
+    const crumbs = {
+      service: branch.name.toUpperCase(),
+      barber: `${branch.name.toUpperCase()} · ${service.name.toUpperCase()}`,
+      schedule: `${branch.name.toUpperCase()} · ${barber.name.toUpperCase()} · ${service.mins} MIN`
+    };
+
+    const foot = {
+      branch: { l:'BRANCH', r:branch.name, cta:'Continue to services' },
+      service: { l:`${mins} MIN · ${1 + Object.values(st.addons).filter(Boolean).length} ITEM`, r:rp(total), cta:'Continue to barber' },
+      barber: { l:'BARBER', r:barber.name, cta:'Continue to schedule' },
+      schedule: { l:st.time ? `${dateLabel} · ${st.time}` : `${dateLabel} · pick a time`, r:rp(total), cta:'Continue to your details' },
+      review: { l:'Total', r:rp(total), cta:'Confirm booking' }
+    }[st.step] || { l:'', r:'', cta:'' };
+
+    const bigRight = st.step === 'service' || st.step === 'schedule' || st.step === 'review';
+    const ctaOn = st.step !== 'schedule' || !!st.time;
+
+    const rows = [
+      { label:'LOCATION', value:branch.name, to:'branch' },
+      { label:'SERVICE', value:`${service.name} · ${service.mins} min`, to:'service' },
+      { label:'BARBER', value:barber.name, to:'barber' },
+      { label:'SCHEDULE', value:st.time ? `${dateLabel} 2026 · ${st.time} WIB` : `${dateLabel} 2026`, to:'schedule' }
+    ];
+
+    const addonVals = ADDONS.map(a => {
+      const on = !!st.addons[a.id];
+      return {
+        name:a.name, meta:`+${rp(a.price)} · ${a.mins} MIN`,
+        toggle: () => this.setState(s => ({ addons:{ ...s.addons, [a.id]: !s.addons[a.id] } })),
+        style:`display:flex;align-items:center;gap:12px;padding:13px 14px;border:1px solid ${on?'#1a1a18':'#e2dfd7'};background:${on?'#fffefb':'#f4f2ec'};border-radius:12px;margin-bottom:8px;cursor:pointer;transition:all .18s ease`,
+        switch:`width:42px;height:24px;border-radius:14px;background:${on?'#1a1a18':'#dbd7ce'};padding:3px;display:flex;justify-content:${on?'flex-end':'flex-start'};transition:all .18s ease;flex-shrink:0`
+      };
+    });
+
+    return {
+      inFlow,
+      isBranch: st.step === 'branch', isService: st.step === 'service', isBarber: st.step === 'barber',
+      isSchedule: st.step === 'schedule', isReview: st.step === 'review', isDone: st.step === 'done',
+      stepLabel: inFlow ? `0${idx+1}/05` : '',
+      crumb: crumbs[st.step] || '',
+      steps: STEPS.map((_,i) => ({ style:`height:3px;flex:1;border-radius:2px;background:${i <= idx ? '#1a1a18' : '#e0ddd5'}` })),
+
+      back: () => { if (idx > 0) this.go(STEPS[idx-1]); else if (st.step === 'done') this.go('review'); },
+      backStyle: `width:34px;height:34px;border-radius:50%;border:1px solid #d6d3cb;display:flex;align-items:center;justify-content:center;font-size:15px;color:#33302a;cursor:pointer;opacity:${idx > 0 || st.step === 'done' ? 1 : .4}`,
+      restart: () => this.setState({ step:'branch', time:null, left:600, addons:{} }),
+
+      next: () => {
+        if (!ctaOn) return;
+        if (st.step === 'review') this.go('done');
+        else this.go(STEPS[idx+1]);
+      },
+      cta: foot.cta,
+      ctaStyle: `background:#1a1a18;color:#faf9f6;border-radius:12px;height:54px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500;cursor:${ctaOn?'pointer':'default'};opacity:${ctaOn?1:.4};transition:opacity .18s ease`,
+      footLeft: foot.l,
+      footRight: foot.r,
+      footLeftStyle: st.step === 'review' ? 'font-size:15px;font-weight:600;color:#1a1a18' : (st.step === 'schedule' ? 'font-size:14px;font-weight:600;color:#1a1a18' : "font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#5d594f"),
+      footRightStyle: bigRight ? "font-family:'Instrument Serif',serif;font-size:26px;color:#1a1a18;line-height:1" : 'font-size:14px;font-weight:600;color:#1a1a18',
+      showHold: st.step === 'schedule' && !!st.time,
+      hold: `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`,
+
+      nearStyle: chip(st.sort === 'near'), soonStyle: chip(st.sort === 'soon'),
+      sortNear: () => this.setState({ sort:'near' }), sortSoon: () => this.setState({ sort:'soon' }),
+      branches: [...BRANCHES].sort((a,b) => st.sort === 'near' ? a.km - b.km : a.slot.localeCompare(b.slot)).map(b => {
+        const on = b.id === st.branch;
+        return { ...b, distance:String(b.km).replace('.',',')+' KM', pid:'b-'+b.id, purl:`url(#b-${b.id})`,
+          select: () => this.setState({ branch:b.id }), card:card(on), dot:dot(on), slotBox:box(on) };
+      }),
+
+      serviceNameCaps: service.name.toUpperCase(),
+      services: SERVICES.map(s => {
+        const on = s.id === st.service;
+        return { ...s, price:rp(s.price), open: st.open === s.id,
+          toggleLabel: st.open === s.id ? 'HIDE DETAILS' : 'SEE DETAILS',
+          select: () => this.setState({ service:s.id, open:s.id }),
+          toggle: (e) => { e.stopPropagation(); this.setState(x => ({ open: x.open === s.id ? null : s.id })); },
+          card:card(on), dot:dot(on) };
+      }),
+      addons: addonVals,
+
+      barbers: BARBERS.map(b => {
+        const on = b.id === st.barber;
+        return { ...b, pid:'a-'+b.id, purl:`url(#a-${b.id})`,
+          select: () => this.setState({ barber:b.id }),
+          card: card(on) + `;opacity:${b.today?1:.82}`, dot:dot(on), slotBox:box(on),
+          slotText:`font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:${b.today?'#1a1a18':'#5d594f'}` };
+      }),
+      selectAny: () => this.setState({ barber:'any' }),
+      anyDot: dot(st.barber === 'any'),
+      anyStyle: `display:flex;align-items:flex-start;gap:12px;margin-top:6px;padding:14px;border-radius:14px;cursor:pointer;transition:all .18s ease;border:1px dashed ${st.barber==='any'?'#1a1a18':'#cdc8bd'};background:${st.barber==='any'?'#fffefb':'transparent'}`,
+
+      days: DAY_NUMS.map((num,i) => {
+        const s = SLOTS[num];
+        const n = s.morning.length + s.afternoon.length + s.evening.length;
+        const on = num === st.day, none = n === 0;
+        return {
+          num, dow:DOW[i], count: none ? '—' : n,
+          select: () => { if (!none) this.setState({ day:num, time:null }); },
+          style:`padding:8px 2px 7px;border-radius:9px;text-align:center;cursor:${none?'default':'pointer'};transition:all .16s ease;border:1px solid ${on?'#1a1a18':'#e2dfd7'};background:${on?'#1a1a18':(none?'transparent':'#f4f2ec')};opacity:${none?.55:1}`,
+          dowStyle:`font-family:'IBM Plex Mono',monospace;font-size:10px;color:${on?'#b9b3a4':'#6e6a61'}`,
+          numStyle:`font-size:16px;font-weight:600;margin-top:3px;color:${on?'#faf9f6':'#1a1a18'}`,
+          countStyle:`font-family:'IBM Plex Mono',monospace;font-size:11px;margin-top:3px;color:${on?'#c9c0a8':'#5d594f'}`
+        };
+      }),
+      groups: ['morning','afternoon','evening'].filter(k => SLOTS[st.day][k].length).map(k => ({
+        label: GLABEL[k],
+        slots: SLOTS[st.day][k].map(t => {
+          const on = t === st.time;
+          return { time:t, select: () => this.setState({ time:t, left:600 }),
+            style:`padding:13px 6px;border-radius:10px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;cursor:pointer;transition:all .16s ease;border:1px solid ${on?'#1a1a18':'#e2dfd7'};background:${on?'#1a1a18':'#f4f2ec'};color:${on?'#faf9f6':'#1a1a18'}` };
+        })
+      })),
+
+      rows: rows.map((r,i) => ({ ...r,
+        edit: () => this.go(r.to),
+        style:`display:flex;align-items:center;gap:12px;padding:13px 0;${i < rows.length-1 ? 'border-bottom:1px solid #e6e3db;' : ''}` }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

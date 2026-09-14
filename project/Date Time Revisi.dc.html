@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#e7e5e0; font-family:'IBM Plex Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#1a1a18; } a:hover { color:#8a6a2f; }
+  * { box-sizing:border-box; }
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;justify-content:center;padding:32px 16px;background:#e7e5e0">
+<div style="width:390px;max-width:100%;background:#faf9f6;border:1px solid #d6d3cb;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;height:844px;box-shadow:0 24px 60px rgba(30,28,24,.14)">
+
+  <div style="display:flex;align-items:center;gap:12px;padding:18px 20px 14px;background:#faf9f6;border-bottom:1px solid #eceae4;flex-shrink:0">
+    <div style="width:34px;height:34px;border-radius:50%;border:1px solid #d6d3cb;display:flex;align-items:center;justify-content:center;font-size:15px;color:#33302a;cursor:pointer">←</div>
+    <div style="flex:1;min-width:0">
+      <div style="font-family:'Instrument Serif',serif;font-size:19px;letter-spacing:.02em;color:#1a1a18;line-height:1">KONTUR</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;color:#9a968c;margin-top:3px">BARBER ATELIER</div>
+    </div>
+    <div style="width:34px;height:34px;border-radius:50%;background:#1a1a18;display:flex;align-items:center;justify-content:center;color:#faf9f6;font-size:12px;font-weight:500">AR</div>
+  </div>
+
+  <div style="padding:14px 20px 12px;flex-shrink:0">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="display:flex;gap:4px;flex:1">
+        <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+        <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+        <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+        <div style="height:3px;flex:1;background:#1a1a18;border-radius:2px"></div>
+        <div style="height:3px;flex:1;background:#e0ddd5;border-radius:2px"></div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#9a968c">04/05</div>
+    </div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8d8880">KEMANG · ANDI PRATAMA · SIGNATURE CUT 45 MIN</div>
+  </div>
+
+  <div style="flex:1;overflow-y:auto;padding:8px 20px 20px">
+    <h1 style="font-family:'Instrument Serif',serif;font-size:34px;font-weight:400;line-height:1.1;margin:6px 0 8px;color:#1a1a18;letter-spacing:-.01em">Pilih jadwal</h1>
+    <p style="font-size:14px;line-height:1.5;color:#6e6a61;margin:0 0 18px;max-width:32ch">Semua jam dalam WIB. Durasi 45 menit.</p>
+
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px">
+      <div style="font-size:15px;font-weight:600;color:#1a1a18">Oktober 2026</div>
+      <div style="display:flex;gap:6px">
+        <div style="width:28px;height:28px;border-radius:8px;border:1px solid #ddd9d0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#6e6a61;cursor:pointer">‹</div>
+        <div style="width:28px;height:28px;border-radius:8px;border:1px solid #ddd9d0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#1a1a18;cursor:pointer">›</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:20px">
+      <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+        <div onClick="{{ d.select }}" style="{{ d.style }}">
+          <div style="{{ d.dowStyle }}">{{ d.dow }}</div>
+          <div style="{{ d.numStyle }}">{{ d.num }}</div>
+          <div style="{{ d.countStyle }}">{{ d.count }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+      <div style="margin-bottom:18px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8d8880;margin-bottom:9px">{{ g.label }}</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <sc-for list="{{ g.slots }}" as="s" hint-placeholder-count="3">
+            <div onClick="{{ s.select }}" style="{{ s.style }}">{{ s.time }}</div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+
+    <div style="height:8px"></div>
+  </div>
+
+  <div style="flex-shrink:0;border-top:1px solid #e6e3db;background:#faf9f6;padding:12px 20px 18px">
+    <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:#f5ecd6;border-radius:9px;margin-bottom:11px">
+      <div style="width:6px;height:6px;border-radius:50%;background:#8a6a2f;flex-shrink:0"></div>
+      <div style="font-size:12.5px;color:#5d4a22;flex:1">Slot ditahan untuk kamu</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:#5d4a22;letter-spacing:.04em">{{ hold }}</div>
+    </div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:11px">
+      <div style="font-size:14px;font-weight:600;color:#1a1a18">{{ summary }}</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:22px;color:#1a1a18;line-height:1">Rp 120.000</div>
+    </div>
+    <div style="background:#1a1a18;color:#faf9f6;border-radius:12px;height:54px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:15px;font-weight:500;cursor:pointer" style-hover="background:#2e2b26">
+      <span>Lanjut isi data diri</span><span style="font-size:16px">→</span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:422,&quot;height&quot;:908}}">
+const DOW = ['SEN','SEL','RAB','KAM','JUM','SAB','MIN'];
+const DAY_NUMS = [12, 13, 14, 15, 16, 17, 18];
+const SLOTS = {
+  14: { pagi:['10:00','10:45'], siang:['13:00','14:00','15:00','16:30'], malam:['19:00','20:00'] },
+  12: { pagi:['09:15'], siang:['13:30'], malam:['19:30'] },
+  13: { pagi:['10:00','11:30'], siang:['14:00','16:00'], malam:['20:00'] },
+  15: { pagi:['10:15'], siang:['13:00','15:45'], malam:['19:00'] },
+  16: { pagi:['11:00'], siang:['16:00'], malam:[] },
+  17: { pagi:['09:00','10:30'], siang:['13:15','14:45'], malam:['18:30','20:15'] },
+  18: { pagi:[], siang:[], malam:[] }
+};
+const LABELS = { pagi:'PAGI · 09:00–12:00', siang:'SIANG · 13:00–17:00', malam:'MALAM · 18:00–21:00' };
+
+class Component extends DCLogic {
+  state = { day:14, time:'14:00', left:597 };
+
+  componentDidMount() {
+    this.t = setInterval(() => this.setState(s => ({ left: s.left > 0 ? s.left - 1 : 0 })), 1000);
+  }
+  componentWillUnmount() { clearInterval(this.t); }
+
+  renderVals() {
+    const { day, time, left } = this.state;
+    const m = Math.floor(left/60), sec = left % 60;
+    const data = SLOTS[day] || { pagi:[], siang:[], malam:[] };
+
+    return {
+      hold: `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`,
+      summary: (() => {
+        const full = ['Sen','Sel','Rab','Kam','Jum','Sab','Min'][DAY_NUMS.indexOf(day)];
+        return time ? `${full}, ${day} Okt · ${time}` : `${full}, ${day} Okt · pilih jam`;
+      })(),
+      days: DAY_NUMS.map((num,i) => {
+        const on = num === day;
+        const s = SLOTS[num] || { pagi:[], siang:[], malam:[] };
+        const n = s.pagi.length + s.siang.length + s.malam.length;
+        const none = n === 0;
+        return {
+          num, dow: DOW[i],
+          count: none ? '—' : n,
+          select: () => { if (!none) this.setState({ day:num, time:null }); },
+          style: `padding:8px 2px 7px;border-radius:9px;text-align:center;cursor:${none?'default':'pointer'};transition:all .16s ease;border:1px solid ${on?'#1a1a18':'#e2dfd7'};background:${on?'#1a1a18':(none?'transparent':'#f4f2ec')};opacity:${none?.55:1}`,
+          dowStyle: `font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:${on?'#b9b3a4':'#6e6a61'}`,
+          numStyle: `font-size:16px;font-weight:600;margin-top:3px;color:${on?'#faf9f6':'#1a1a18'}`,
+          countStyle: `font-family:'IBM Plex Mono',monospace;font-size:11px;margin-top:3px;color:${on?'#c9c0a8':'#5d594f'}`
+        };
+      }),
+      groups: ['pagi','siang','malam'].filter(k => data[k].length).map(k => ({
+        label: LABELS[k],
+        slots: data[k].map(t => {
+          const on = t === time;
+          return {
+            time: t,
+            select: () => this.setState({ time:t, left:597 }),
+            style: `padding:13px 6px;border-radius:10px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;letter-spacing:.03em;cursor:pointer;transition:all .16s ease;border:1px solid ${on?'#1a1a18':'#e2dfd7'};background:${on?'#1a1a18':'#f4f2ec'};color:${on?'#faf9f6':'#1a1a18'}`
+          };
+        })
+      }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>
